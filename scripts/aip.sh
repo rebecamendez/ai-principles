@@ -49,6 +49,12 @@ install() {
     for s in "$SHARED_DIR"/skills/*; do
       [ -d "$s" ] && ln -sfn "$s" "$cfg_dir/skills/$(basename "$s")"
     done
+    if [ "$name" = "opencode" ]; then
+      mkdir -p "$cfg_dir/commands"
+      for c in "$SHARED_DIR"/commands/cmd-*.md; do
+        [ -f "$c" ] && ln -sfn "$c" "$cfg_dir/commands/$(basename "$c")"
+      done
+    fi
     log "installed: $name -> $cfg_dir"
   done
   hook install
@@ -71,6 +77,11 @@ uninstall() {
     for s in "$cfg_dir"/skills/*; do
       { [ -e "$s" ] || [ -L "$s" ]; } && is_ours "$s" && rm -rf "$s"
     done
+    if [ "$name" = "opencode" ]; then
+      for c in "$cfg_dir"/commands/cmd-*.md; do
+        { [ -e "$c" ] || [ -L "$c" ]; } && is_ours "$c" && rm -f "$c"
+      done
+    fi
   done
   hook remove
   rm -rf "$HOME/.cache/aip"
@@ -124,6 +135,10 @@ doctor() {
       log "ok: $name -> $cfg_dir/$rule_file"
     else
       log "MISSING: $name -> $cfg_dir/$rule_file"
+      fail=1
+    fi
+    if [ "$name" = "opencode" ] && ! is_ours "$cfg_dir/commands/cmd-create-pr.md"; then
+      log "MISSING: opencode commands -> $cfg_dir/commands"
       fail=1
     fi
   done

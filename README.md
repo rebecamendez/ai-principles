@@ -28,7 +28,8 @@ Keeping agents in sync by hand is boring and error-prone. `ai-principles` gives 
 
 - **Rules**: `aip-global-git`, `aip-global-documentation`, `aip-scoped-typescript`, `aip-scoped-bash` (full list in `principles/rules/index.md`).
 - **Decision**: `aip-global-0001`, portable Markdown over per-agent native rules (`principles/adrs/index.md`).
-- **Skill**: `audit-code-principles`, audits any codebase against these principles (`principles/skills/README.md`).
+- **Skill**: `audit-code-principles`, audits any codebase against these principles; `create-pr`, opens branch, commits, push, and pull request for you (`principles/skills/README.md`).
+- **Command**: `/cmd-audit-code` and `/cmd-create-pr` (opencode) wrap the `audit-code-principles` and `create-pr` skills (`principles/commands/`).
 
 ## How it works ⚙️
 
@@ -56,7 +57,8 @@ flowchart LR
 ├── adrs/
 │   └── index.md + template.md + aip-*.md   ──► principles/adrs/
 └── skills/
-    └── audit-code-principles/         ──► principles/skills/audit-code-principles/
+    ├── audit-code-principles/         ──► principles/skills/audit-code-principles/
+    └── create-pr/                     ──► principles/skills/create-pr/
 ```
 
 Claude is just the example above. The same tree lands in every agent; only the entry file name and folder change:
@@ -152,7 +154,8 @@ Every rule bullet carries a readable id you can reference later:
 │   ├── AGENTS.md          # the source of truth agents read
 │   ├── adrs/              # decision records: index + template + aip-*
 │   ├── rules/             # aip-global-* + aip-scoped-*
-│   └── skills/            # <name>/SKILL.md
+│   ├── skills/            # <name>/SKILL.md
+│   └── commands/          # opencode cmd-*.md installed globally
 └── .github/
     ├── workflows/pr-verify.yml
     └── pull_request_template.md
@@ -164,5 +167,5 @@ Every rule bullet carries a readable id you can reference later:
 - **Add an ADR**: copy `principles/adrs/template.md` to `principles/adrs/aip-<global|scoped>-NNNN-<slug>.md`, add it to `principles/adrs/index.md`, run `make install`.
 - **Add a skill**: create `principles/skills/<name>/SKILL.md`, run `make install`.
 - **Use a skill**: skills turn on when the task matches their `description`, or you can ask the agent by name, e.g. "use audit-code-principles". The available skills are listed in `principles/skills/README.md`.
-- **opencode commands in this repo**: `/cmd-audit-rules` runs the `audit-rules` skill, `/cmd-create-rule` runs the `create-rule` skill (they live in `.opencode/commands/`).
+- **opencode commands in this repo**: `/cmd-audit-rules` runs the `audit-rules` skill, `/cmd-create-rule` runs the `create-rule` skill (they live in `.opencode/commands/`). Installable commands like `/cmd-create-pr` live in `principles/commands/` and land in `~/.config/opencode/commands/` with `make install`.
 
