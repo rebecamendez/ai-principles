@@ -28,7 +28,7 @@ Keeping agents in sync by hand is boring and error-prone. `ai-principles` gives 
 
 - **Rules**: `aip-global-git`, `aip-global-documentation`, `aip-scoped-typescript`, `aip-scoped-bash` (full list in `principles/rules/index.md`).
 - **Decision**: `aip-global-0001`, portable Markdown over per-agent native rules (`principles/adrs/index.md`).
-- **Skill**: `audit-code-principles`, audits any codebase against these principles (`principles/skills/README.md`).
+- **Skill**: `audit-code-principles`, audits any codebase against these principles; `create-pr`, opens branch, commits, push, and pull request for you (`principles/skills/README.md`).
 
 ## How it works ⚙️
 
@@ -56,7 +56,8 @@ flowchart LR
 ├── adrs/
 │   └── index.md + template.md + aip-*.md   ──► principles/adrs/
 └── skills/
-    └── audit-code-principles/         ──► principles/skills/audit-code-principles/
+    ├── audit-code-principles/         ──► principles/skills/audit-code-principles/
+    └── create-pr/                     ──► principles/skills/create-pr/
 ```
 
 Claude is just the example above. The same tree lands in every agent; only the entry file name and folder change:
