@@ -18,17 +18,16 @@ Documentation is part of the code: keep it up to date alongside it and review it
 ├── docs/
 │   ├── index.md               [MUST]   map of docs/
 │   ├── onboarding.md          [SHOULD] getting started for new teammates
+│   ├── architecture-system.md        [MUST]   big picture with C4/LikeC4 diagram
+│   ├── architecture-code.md          [MUST]   modules, boundaries, golden samples
+│   ├── architecture-testing.md       [MUST]   testing strategy by layer
+│   ├── architecture-diagrams/        [MUST]   diagram sources (LikeC4, images)
 │   ├── context/               [SHOULD] business context
 │   │   ├── domain.md                  why it exists, who the actors are
 │   │   └── modules.md                 domain modules with use-cases
-│   ├── architecture/          [MUST]   how the system is built
-│   │   ├── system.md                  big picture with C4/LikeC4 diagram
-│   │   ├── code.md                    modules, boundaries, golden samples
-│   │   ├── testing.md                 testing strategy by layer
-│   │   └── diagrams/                  diagram sources (LikeC4, images)
 │   └── adrs/                  [MUST]   decisions with trade-offs
 │       ├── index.md                   decision list
-│       └── aip-0001-...               one file per decision
+│       └── 0001-...                   one file per decision
 └── src/ ...                 the code
 ```
 
@@ -43,11 +42,11 @@ Every project ships the same skeleton so agents and new people always know where
 - [MUST] `docs/index.md` maps the whole `docs/` folder. { aip-global-documentation.docs-index }
 - [SHOULD] `docs/onboarding.md` gets new teammates oriented: where to start and who to ask. { aip-global-documentation.onboarding }
 - [SHOULD] `docs/context/` holds business context: `domain.md` (why it exists, who the actors are) and `modules.md` (domain modules with use-cases). { aip-global-documentation.context-dir }
-- [MUST] `docs/architecture/system.md` shows the big picture with a C4/LikeC4 diagram and links to the diagram sources. { aip-global-documentation.architecture-system }
-- [MUST] `docs/architecture/code.md` maps modules and boundaries with golden samples. { aip-global-documentation.architecture-code }
-- [MUST] `docs/architecture/testing.md` explains the testing strategy and what each layer covers. { aip-global-documentation.architecture-testing }
-- [MUST] keep diagram sources in `docs/architecture/diagrams/`, even if empty when there are none yet. { aip-global-documentation.architecture-diagrams }
-- [MUST] record decisions in `docs/adrs/`: one numbered, scope-prefixed file per decision, listed in `docs/adrs/index.md`. { aip-global-documentation.adr }
+- [MUST] `docs/architecture-system.md` shows the big picture with a C4/LikeC4 diagram and links to the diagram sources. { aip-global-documentation.architecture-system }
+- [MUST] `docs/architecture-code.md` maps modules and boundaries with golden samples. { aip-global-documentation.architecture-code }
+- [MUST] `docs/architecture-testing.md` explains the testing strategy and what each layer covers. { aip-global-documentation.architecture-testing }
+- [MUST] keep diagram sources in `docs/architecture-diagrams/`, even if empty when there are none yet. { aip-global-documentation.architecture-diagrams }
+- [MUST] record decisions in `docs/adrs/`: one numbered file per decision, listed in `docs/adrs/index.md`. { aip-global-documentation.adr }
 
 ## Writing style
 

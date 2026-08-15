@@ -2,11 +2,9 @@
 
 > ⚡ Models change. Agents come and go. The principles stay. In a world moving at the speed of light, build on what you truly care about. It is the only thing that anchors us.
 
-> This is where I ([Rebeca](https://github.com/rebecamendez)) keep my principles for every AI agent, to use and review them in all my projects. Edit once, install everywhere.
->
-> An alternative, personal version of the approach I follow at work to share our team's coding standards: here I work with the free [opencode](https://opencode.ai) models, while at work we use paid models like Claude. Inspired by [this article on encoding team standards](https://martinfowler.com/articles/reduce-friction-ai/encoding-team-standards.html) by Rahul Garg, published on [martinfowler.com](https://martinfowler.com).
+This is where I ([Rebeca](https://github.com/rebecamendez)) keep my principles for every AI agent, to use and review them in all my projects. Edit once, install everywhere. `ai-principles` is a single source of truth for the rules and skills you want **every** AI agent to follow: Claude Code, opencode, Gemini, Codex... Instead of copy-pasting the same instructions into each tool by hand, you maintain them in one place and push them out with a single command.
 
-`ai-principles` is a single source of truth for the rules and skills you want **every** AI agent to follow: Claude Code, opencode, Gemini, Codex... Instead of copy-pasting the same instructions into each tool by hand, you maintain them in one place and push them out with a single command.
+An alternative, personal version of the approach I lead at work, where I share our team's coding standards with the collaboration and inspiration of teammates. Here I work with the free [opencode](https://opencode.ai) models, while at work we use paid models like Claude, so this is a simplified take, meant for personal and educational use. Inspired by [this article on encoding team standards](https://martinfowler.com/articles/reduce-friction-ai/encoding-team-standards.html) by Rahul Garg, published on [martinfowler.com](https://martinfowler.com).
 
 ## Quick start 🚀
 
