@@ -140,21 +140,28 @@ Every rule bullet carries a readable id you can reference later:
 
 ## Layout 🗂️
 
-```
+```bash
 .
-├── rules/                 # this repo's own rules, they win
+├── AGENTS.md                # this repo's own entry file, points to rules/
+├── Makefile                 # install / uninstall / doctor / lint / version
+├── rules/                   # this repo's own rules, they win
+│   ├── index.md             # how repo rules work
+│   └── repo-maintenance.md  # example: this repo's own rules
 ├── scripts/
-│   ├── aip.sh              # the CLI behind make
-│   └── lint.sh             # local checks (make lint)
-├── principles/             # installable principles
-│   ├── AGENTS.md          # the source of truth agents read
-│   ├── adrs/              # decision records: index + template + aip-*
-│   ├── rules/             # aip-global-* + aip-scoped-*
-│   ├── skills/            # <name>/SKILL.md
-│   └── commands/          # opencode cmd-*.md installed globally
+│   ├── aip.sh               # the CLI behind make
+│   └── lint.sh              # local checks (make lint)
+├── principles/              # ⭐ installable principles
+│   ├── AGENTS.md            # the source of truth agents read
+│   ├── adrs/                # decision records: index + template + aip-*
+│   ├── rules/               # index + aip-global-* + aip-scoped-*
+│   ├── skills/              # <name>/SKILL.md
+│   └── commands/            # opencode cmd-*.md installed globally
+├── .opencode/               # opencode config for this repo, not installed
+│   ├── commands/            # cmd-audit-rules.md, cmd-create-rule.md
+│   └── skills/              # audit-rules/, create-rule/
 └── .github/
-    ├── workflows/pr-verify.yml
-    └── pull_request_template.md
+    ├── pull_request_template.md
+    └── workflows/pr-verify.yml
 ```
 
 ## Extending 🌱
